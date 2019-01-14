@@ -20,3 +20,19 @@ It returns json format scraped news
  'title': 'U.S. Will Review Travel Ban on North Korea, Envoy Says'
 }
 ```
+
+Scrap from search result front page
+
+```python
+from nytimes_scraper import get_urls_from_search_front
+from nytimes_scraper import save
+
+directory = './output/'
+query = 'korea'
+date = '20190103'
+urls = get_urls_from_search_front(query, date)
+
+for url in urls:
+    json_obj = parse_page(url)
+    save(json_obj, date, directory)
+```
