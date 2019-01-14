@@ -1,8 +1,13 @@
+import json
 import re
 import requests
 from bs4 import BeautifulSoup
+from datetime import datetime
 from time import gmtime, strftime
 
+
+news_dateformat = '%B. %d, %Y'
+user_dateformat = '%Y-%m-%d'
 
 def now():
     """
@@ -43,3 +48,12 @@ def normalize_text(text):
     text = lineseparator_pattern.sub('\n', text)
     text = doublespace_pattern.sub(' ', text)
     return text.strip()
+
+def strf_to_datetime(strf, form):
+    return datetime.strptime(strf, form)
+
+def save(json_obj, date, directory):
+    title = json_obj['title'][:50].replace(' ','-')
+    path = '{}/{}_{}.json'.format(directory, date, title)
+    with open(path, 'w', encoding='utf-8') as f:
+        json.dump(json_obj, f, indent=2, ensure_ascii=False)
