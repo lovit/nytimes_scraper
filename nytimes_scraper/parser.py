@@ -1,3 +1,5 @@
+from .utils import get_soup
+
 def parse_title(soup):
     return soup.select('h1[itemprop=headline]')[0].text
 
@@ -21,5 +23,9 @@ def parse_page(url):
 
     json_obj = {}
     for key, func in funcs:
-        json_obj[key] = func(soup)
+        try:
+            json_obj[key] = func(soup)
+        except:
+            continue
+        json_obj['url'] = url
     return json_obj
