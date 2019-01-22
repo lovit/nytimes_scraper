@@ -53,7 +53,7 @@ def strf_to_datetime(strf, form):
     return datetime.strptime(strf, form)
 
 def save(json_obj, date, directory):
-    title = json_obj['title'][:50].replace(' ','-')
+    title = json_obj.get('url', '').split('/')[-1].replace('.html', '')
     path = '{}/{}_{}.json'.format(directory, date, title)
     with open(path, 'w', encoding='utf-8') as f:
         json.dump(json_obj, f, indent=2, ensure_ascii=False)
