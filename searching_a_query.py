@@ -38,6 +38,7 @@ def main():
     while dt <= edt:
         date = dt.strftime("%Y%m%d")
         urls = get_urls_from_search_front(query, date)
+        dt += datetime.timedelta(days=1)
 
         if not urls:
             print('Not found article on {}'.format(date))
@@ -54,8 +55,6 @@ def main():
             time.sleep(sleep)
             print('\rscraping {} / {} articles on {}'.format(i+1, n, date), end='')
         print('\rscraping {} / {} articles on {}'.format(i+1, n, date))
-
-        dt += datetime.timedelta(days=1)
     print('done')
 
 if __name__ == '__main__':
