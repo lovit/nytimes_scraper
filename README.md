@@ -42,5 +42,5 @@ for url in urls:
 With script file
 
 ```
-python searching_a_query --query korea --begin_date 2018/01/01 --end_date 2019/01/10 --directory ./output --sleep 10 --debug
+python searching_a_query.py --query korea --begin_date 2018/01/01 --end_date 2019/01/10 --directory ./output --sleep 10 --debug
 ```
