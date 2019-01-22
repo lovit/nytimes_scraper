@@ -1,5 +1,7 @@
 # New York Times scraper
 
+Not available to retrieve all search results, only articles in front search result page.
+
 ## Usage
 
 To parse a page
@@ -35,4 +37,10 @@ urls = get_urls_from_search_front(query, date)
 for url in urls:
     json_obj = parse_page(url)
     save(json_obj, date, directory)
+```
+
+With script file
+
+```
+python searching_a_query --query korea --begin_date 2018/01/01 --end_date 2019/01/10 --directory ./output --sleep 10 --debug
 ```
