@@ -11,10 +11,9 @@ from nytimes_scraper import save
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--query', type=str, default='korea', help='Single term')
-    parser.add_argument('--begin_date', type=str, default='2019/01/01', help='datetime YYYY/mm/dd')
-    parser.add_argument('--end_date', type=str, default='2019/01/03', help='datetime YYYY/mm/dd')
+    parser.add_argument('--begin_date', type=str, default='2018/01/01', help='datetime YYYY/mm/dd')
+    parser.add_argument('--end_date', type=str, default='2019/01/10', help='datetime YYYY/mm/dd')
     parser.add_argument('--directory', type=str, default='./output/', help='Output directory')
-    parser.add_argument('--max_page', type=int, default=1000, help='Maximum number of pages to be scraped')
     parser.add_argument('--sleep', type=float, default=10, help='Sleep time for each submission (post)')
     parser.add_argument('--debug', dest='DEBUG', action='store_true')
 
@@ -23,7 +22,6 @@ def main():
     begin_date = args.begin_date
     end_date = args.end_date
     directory = args.directory
-    max_page = args.max_page
     sleep = args.sleep
     DEBUG = args.DEBUG
 
