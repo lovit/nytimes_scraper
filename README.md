@@ -27,7 +27,7 @@ Scrap from search result front page
 from nytimes_scraper import get_urls_from_search_front
 from nytimes_scraper import save
 
-directory = './output/'
+directory = './output/korea/'
 query = 'korea'
 date = '20190103'
 urls = get_urls_from_search_front(query, date)
