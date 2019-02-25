@@ -6,9 +6,6 @@ def parse_title(soup):
 def parse_author(soup):
     return soup.select('p[itemprop^=author]')[0].text
 
-def parse_date(soup):
-    return soup.select('ul[class^=css-zh8slb]')[0].text
-
 def parse_content(soup):
     return '\n'.join(p.text for p in soup.select('section[name=articleBody] p'))
 
@@ -17,7 +14,6 @@ def parse_page(url):
     funcs = [
         ('title', parse_title),
         ('author', parse_author),
-        ('date', parse_date),
         ('content', parse_content)
     ]
 

@@ -55,5 +55,6 @@ def strf_to_datetime(strf, form):
 def save(json_obj, date, directory):
     title = json_obj.get('url', '').split('/')[-1].replace('.html', '')
     path = '{}/{}_{}.json'.format(directory, date, title)
+    json_obj['date'] = '{}-{}-{}'.format(date[:4], date[4:6], date[6:])
     with open(path, 'w', encoding='utf-8') as f:
         json.dump(json_obj, f, indent=2, ensure_ascii=False)
